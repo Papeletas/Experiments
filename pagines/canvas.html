@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatile" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.2">
+    <title>Proves</title>
+    <style>
+        .etiquetes {
+            margin: 4px;
+            border: 4px solid blueviolet;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="etiquetes">
+        <canvas id="canvas">
+            El teu navegador no suporta l'etiqueta &lt;canvas&gt;.
+        </canvas>
+        <script>
+            var canvas = document.getElementById("canvas");
+            var cxt = canvas.getContext("2d");
+
+            // Gradiente vertical
+            var grt = cxt.createLinearGradient(0, 10, 0, 50);
+            grt.addColorStop(0, "red");  // Color de inicio del gradiente
+            grt.addColorStop(1, "yellow"); // Color de fin del gradiente
+
+            cxt.strokeStyle = grt; // Pone el gradiente como estilo paa pintar lineas
+            cxt.font = "40px Book Antiqua, Sans-serif";
+            cxt.strokeText("Degradados", 50, 40); // Texto contornos
+
+            // Gradiente horizontal
+            var grt2 = cxt.createLinearGradient(50, 0, 150, 0);
+            grt2.addColorStop(0, "red");  // Color de inicio del gradiente
+            grt2.addColorStop(0.3, "yellow"); // Color intermedio
+            grt2.addColorStop(0.6, "green"); // Color intermedio
+            grt2.addColorStop(1, "blue"); // Color de fin del gradiente
+            cxt.fillStyle = grt2;
+            cxt.fillRect(50, 50, 100, 50);
+
+            // Gradiente en diagonal
+            var grt3 = cxt.createLinearGradient(160, 50, 200, 150);
+            grt3.addColorStop(0, "white");  // Color de inicio del gradiente
+            grt3.addColorStop(0.2, "black"); // Color intermedio
+            grt3.addColorStop(0.4, "white"); // Color intermedio
+            grt3.addColorStop(0.6, "black"); // Color de fin del gradiente
+            cxt.fillStyle = grt3;
+            cxt.fillRect(160, 50, 100, 50);
+
+            //Gradiente circular
+            var grt4 = cxt.createRadialGradient(205, 75, 2, 210, 80, 35);
+            grt4.addColorStop(0, "red");  // Color de inicio del gradiente
+            grt4.addColorStop(0.3, "rgba(0,0,255,0.3)");  // Color con transparencia en el gradiente
+            grt4.addColorStop(1, "#ffff00"); // Color de fin del gradiente
+            cxt.fillStyle = grt4;
+            cxt.fillRect(180, 60, 60, 40);
+        </script>
+    </section>
+
+    <section class="etiquetes">
+        <footer>
+            <a href="../index.html">home</a>
+        </footer>
+    </section>
+</body>
